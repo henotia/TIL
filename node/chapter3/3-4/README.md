@@ -15,8 +15,8 @@ __filename 현재 파일명
 __dirname 현재 파일 경로
 
 ## module, exports
-exports에는 객체로만
-module.exports와 exports는 참조관계
+exports에는 객체로만  
+module.exports와 exports는 참조관계  
 exports -> module.exports -> { }
 
 ## process
@@ -33,5 +33,5 @@ nextTick의 호출도 microtask에 속함
 microtask : Promise / nextTick
 
 ### process.exit(code)
-프로세스 종료
+프로세스 종료  
 code 1: 비정상 종료
