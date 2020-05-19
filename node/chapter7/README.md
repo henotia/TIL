@@ -47,3 +47,15 @@
 * CONSTRAINT \[ 제약조건명 \] FOREIGN KEY \[ 컬럼명 \] REFRENCES \[ 참고하는 컬럼명 \]  
   FK 지정
 
+## CRUD
+* CREATE  
+  INSERT INTO \[ TABLE NAME \] (\[ COLUMN1 \] \[ COLUMNE2 \] ... )
+* SELECT  
+  SELECT \[ * | COLUMN ...\] FROM \[ TABLE NAME \]  
+  ( ORDER BY \[ COLUMN NAME \] \[ ASC | DESC \] )  
+  ( LIMIT \[ NUMBER \] OFFSET \[ NUMBER \] )
+* UPDATE  
+  UPDATE \[ TABLE NAME \] SET \[ COLUMN NAME = VALUE \] ( WHERE \[ CONDITION \] )
+* DELETE  
+  DELETE FROM \[ TABLE NAME \] ( WHERE \[ CONDITION \] )
+
