@@ -146,5 +146,5 @@ User.update({
 ``` javascript
 User.destroy({
   where: { id : 2}
-}):
+})
 ```
