@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Sequelize Server</title>
+  <style>
+    table {
+      border: 1px solid black;
+      border-collapse: collapse;
+    }
+
+    table th, table td {
+      border: 1px solid black;
+    }
+  </style>
+</head>
+<body>
+  <div>
+    <form action="" id="user-form">
+      <fieldset>
+        <legend>Register User</legend>
+        <div><input type="text" id="username" placeholder="name"></div>
+        <div><input type="number" id="age" placeholder="age"></div>
+        <div><input type="checkbox" id="married"><label for="married">is Married</label></div>
+        <button type="submit">submit</button>
+      </fieldset>
+    </form>
+  </div>
+  <br>
+  <table id="user-list">
+    <thead>
+      <tr>
+        <th>id</th>
+        <th>name</th>
+        <th>age</th>
+        <th>married</th>
+      </tr>
+    </thead>
+    <tbody>
+      {{#with users}}
+        <tr>
+          <td>{{id}}</td>
+          <td>{{name}}</td>
+          <td>{{age}}</td>
+          <td>
+            {{#if married}}
+              기혼
+            {{else}}
+              미혼
+            {{/if}}
+          </td>
+        </tr>
+      {{/with}}
+    </tbody>
+  </table>
+
+  <br>
+
+  <div>
+    <form action="" id="comment-form">
+      <fieldset>
+        <legend>Comment Form</legend>
+        <div><input type="text" id="userid" placeholder="UserId"></div>
+        <div><input type="text" id="comment" placeholder="Comment"></div>
+        <button type="submit">submit</button>
+      </fieldset>
+    </form>
+  </div>
+
+  <br>
+
+  <table id="comment-list">
+    <thead>
+      <tr>
+        <th>id</th>
+        <th>name</th>
+        <th>comment</th>
+        <th>update</th>
+        <th>delete</th>
+      </tr>
+    </thead>
+    <tbody></tbody>
+  </table>
+  <script src="/javascripts/sequelize.js"></script>
+</body>
+</html>
