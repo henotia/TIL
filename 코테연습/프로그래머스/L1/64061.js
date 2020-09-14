@@ -3,33 +3,25 @@
 
 function solution(board, moves) {
   const basket = [];
-  for (let i = 0; i < moves.length; i++) {
-    for (let j = 0; j < board.length; j++) {
-      if (board[j][moves[i] - 1] !== 0) {
-        basket.push(board[j][moves[i] - 1]);
-        board[j][moves[i] - 1] = 0;
-        break;
-      }
+  let result = 0;
+
+  const stack = board.reduce((result, row) => row.map((_, i) => [...(result[i] || []), row[i]]))
+  .map(row => row.reverse().filter(v => v !== 0));
+
+  for (const move of moves) {
+    const pop = stack[move - 1].pop();
+    if (!pop) continue;
+    if (pop === basket[basket.length -1]) {
+      basket.pop();
+      result += 2;
+      continue;
     }
+    basket.push(pop);
   }
 
-  return checkDuplicate(basket);
+  return result;
 }
 
-function checkDuplicate(basket) {
-  let count = 0;
-
-  for (let i = 0; i < basket.length; i++) {
-    if (basket[i] === basket[i + 1]) {
-      count = count + 2;
-      basket.splice(i, 2);
-      count += checkDuplicate(basket);
-      break;
-    }
-  }
-
-  return count;
-}
 
 solution([
     [0, 0, 0, 0, 0],
