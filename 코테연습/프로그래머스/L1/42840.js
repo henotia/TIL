@@ -16,12 +16,14 @@ function solution(answers) {
     if (answers[i] === p3[i % p3l]) a3++;
   }
 
+  const result = [];
   const m = Math.max(a1, a2, a3);
 
-  return [a1, a2, a3].reduce((acc, v, i) => {
-    if (v - m === 0) acc[i] = i + 1;
-    return acc;
-  }, []).filter(v => v);
+  if (a1 === m) result.push(1);
+  if (a2 === m) result.push(2);
+  if (a3 === m) result.push(3);
+
+  return result;
 }
 
 console.log(solution([1, 2, 3, 4, 5]));
