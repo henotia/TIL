@@ -1,16 +1,13 @@
 // https://programmers.co.kr/learn/courses/30/lessons/42576
 
 function solution(participant, completion) {
-  completion.map(player => {
-    const idx = participant.findIndex(p => p === player);
-    if (idx > -1) {
-      participant.splice(idx, 1);
-    }
-  });
+  const player = {};
+  participant.forEach(p => player[p] ? player[p]++ : player[p] = 1);
+  completion.forEach(p => player[p] ? player[p]-- : undefined);
 
-  return participant.toString();
+  return Object.entries(player).find(([_, v]) => v === 1)[0];
 }
 
-solution(['leo', 'kiki', 'eden'], ['eden', 'kiki'])
+solution(['leo', 'kiki', 'eden'], ['eden', 'kiki']).log
 solution(['marina', 'josipa', 'nikola', 'vinko', 'filipa'], ['josipa', 'filipa', 'marina', 'nikola'])
 solution(['mislav', 'stanko', 'mislav', 'ana'], ['stanko', 'ana', 'mislav'])
